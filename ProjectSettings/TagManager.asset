@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Wall
+  - Enemy
+  - Bullet
+  - Loot
+  - Enemy1
+  - FireBall
+  - HealPot
+  - AttackSpeedBuff
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - BulletLayer
+  - Water
+  - UI
+  - Player
+  - Wall
+  - Stab
+  - Damage
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Top
+    uniqueID: 4242684263
+    locked: 0
