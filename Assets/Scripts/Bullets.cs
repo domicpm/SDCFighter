@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Bullets : MonoBehaviour
 {
     public float mindamage = 20;
-    public float maxdamage = 75;
+    public float maxdamage = 125;
     public float speed = 6f;
     public float damage;
     public PlayerMovement player;
@@ -34,9 +34,7 @@ public class Bullets : MonoBehaviour
         }
             
             if(collision.gameObject.CompareTag("Enemy")) {
-            dmgtxt.updateDamage(damage);
-           // dmgtxt.deleteDmg();
-            dmgtxt.spawnDmg();
+            dmgtxt.spawnDmg(damage);
             Destroy(gameObject);
         }
 
@@ -48,7 +46,6 @@ public class Bullets : MonoBehaviour
     public void UpdateDamage()
     {
         damage = Mathf.RoundToInt(Random.Range(mindamage, maxdamage));
-        Debug.Log("Damage: " + damage);
     }
     public void shoot()
     {

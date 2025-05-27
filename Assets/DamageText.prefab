@@ -126,8 +126,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5
-  m_fontSizeBase: 5
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -185,3 +185,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageText: {fileID: 3399920392444358937}
   enemy: {fileID: 4234035807739799409, guid: 7e0fe062e588b584bac85af410f59ee5, type: 3}
+  pos: {x: 0, y: 0, z: 0}
+  damageTextPrefab: {fileID: 0}

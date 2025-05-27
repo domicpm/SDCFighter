@@ -134,10 +134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352e0224c53ce1c41b8c3897fc2da215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 8308259192265607000, guid: a6491852fdca62141b728ec1aad07d68, type: 3}
   ppos: 175
   moveSpeed: 15
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 8202535746269988529}
   interval: 1
   enemy: {fileID: 0}
-  p: {fileID: 0}
+  p: {fileID: 2759682679175259032, guid: ae1d9f3ccb030d84e813e4891fa5895b, type: 3}

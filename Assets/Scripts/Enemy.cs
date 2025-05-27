@@ -11,9 +11,13 @@ public class Enemy : MonoBehaviour
     public fireball fb;
     public AttackBoost ab;
     public PlayerMovement p;
-    public Vector2 randomPosition;
+    public Vector3 randomPosition;
+    public DamageText dt;
+    public bool isSpawned = false;
+    public dmgTextSpawn spawnposition;
     private void Start()
     {
+        dt.setPosition(spawnposition.gameObject.transform.position);
         healthbar.setMaxHealth(maxhp);
 
     }
@@ -26,7 +30,7 @@ public class Enemy : MonoBehaviour
    
     public Vector3 getCurrentEnemyPos()
     {
-        return transform.position;
+        return randomPosition;
     }
     public void Update()
     {
@@ -40,7 +44,8 @@ public class Enemy : MonoBehaviour
 
              randomPosition = new Vector3(Random.Range(-9f, 9f), Random.Range(-4f, 4f));
             Instantiate(gameObject, randomPosition, Quaternion.identity);
-        
+        Debug.Log("Damage random:" + randomPosition);
+        dt.setPosition(randomPosition);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

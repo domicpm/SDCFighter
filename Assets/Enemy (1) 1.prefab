@@ -549,15 +549,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxhp: 100
   healthbar: {fileID: 4234035806836282701}
-  bullet: {fileID: 0}
+  bullet: {fileID: 7395927344407474648, guid: 52f9fb9d7576a3f40b9a0d9871623ecc, type: 3}
   isHit: 0
   heal: {fileID: 3355951273185114513, guid: 639bf65dd32813d478e41b95ab278118, type: 3}
-  enemydeathpos: {x: 0, y: 0, z: 0}
+  enemydeathpos: {x: 0, y: 0}
   fb: {fileID: 8202535746269988528, guid: f7ecd6d523517f74b899e5551d7a9f91, type: 3}
   ab: {fileID: -942375497239725935, guid: ade59a37a01dc524ba68aefbb7089fc8, type: 3}
-  p: {fileID: 0}
-  dt: {fileID: 3399920392444358936, guid: cce2cc47e89e8a14e88886167b141576, type: 3}
+  p: {fileID: 2759682679175259032, guid: ae1d9f3ccb030d84e813e4891fa5895b, type: 3}
   randomPosition: {x: 0, y: 0}
+  damagetext: {fileID: 3399920392444358936, guid: cce2cc47e89e8a14e88886167b141576, type: 3}
+  enemyPrefab: {fileID: 4234035807739799423}
 --- !u!61 &4234035807739799422
 BoxCollider2D:
   m_ObjectHideFlags: 0

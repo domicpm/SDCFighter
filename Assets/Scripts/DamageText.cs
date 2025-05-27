@@ -7,6 +7,8 @@ public class DamageText : MonoBehaviour
 {
     [SerializeField] private TextMeshPro damageText;
     public Enemy enemy;
+    public Vector3 pos;
+    [SerializeField] private DamageText damageTextPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,22 +17,28 @@ public class DamageText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.up * Time.deltaTime; // Schwebt nach oben
+        transform.position += Vector3.up * 3f * Time.deltaTime; // Schwebt nach oben
     }
     public void updateDamage(float dmg)
     {
         damageText.text = dmg.ToString();
+
     }
     public void deleteDmg()
     {
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 0.5f);
+
     }
-    public void spawnDmg()
+    public void setPosition(Vector3 posi)
     {
-        Vector3 pos = enemy.getCurrentEnemyPos();
-        Vector3 posUpdate = new Vector3(6.16f, 2.1f, -1.6f);
-        pos += posUpdate;
-        Instantiate(gameObject, pos , Quaternion.identity);
+        pos = posi;
+    }
+   
+    public void spawnDmg(float damage)
+    {
+        DamageText dmgText = Instantiate(damageTextPrefab, pos, Quaternion.identity);
+        dmgText.updateDamage(damage);
+        dmgText.deleteDmg(); // automatisch nach 1 Sekunde zerstören
     }
    
 }
