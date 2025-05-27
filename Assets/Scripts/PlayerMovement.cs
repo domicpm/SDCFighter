@@ -45,10 +45,24 @@ public class PlayerMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
+        //controller right stick (aiming)
+       
+
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg - 90f;
         Vector3 movement = transform.position + new Vector3(horizontalInput, verticalInput, 0)* speed * Time.deltaTime;
         transform.position = movement;
+
+        //float rightStickX = Input.GetAxis("RightStickHorizontal");
+        //float rightStickY = Input.GetAxis("RightStickVertical");
+        //Vector2 lookDirection = new Vector2(rightStickX, rightStickY);
+
+        ////when stick is moved
+        //if (lookDirection.sqrMagnitude > 0.01f)
+        //{
+        //    float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        //    transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
+        //}
 
         if (Input.GetKeyDown(KeyCode.H))
         {
@@ -150,12 +164,5 @@ public class PlayerMovement : MonoBehaviour
     {
         return isDead;
     }
-    private void hideObject()
-    {
-        player.SetActive(false);
-    }
-    private void showObject()
-    {
-        player.SetActive(true);
-    }
+
 }

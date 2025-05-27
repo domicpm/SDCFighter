@@ -75,11 +75,12 @@
     <Compile Include="Assets\Scripts\UIDamage.cs" />
     <Compile Include="Assets\Scripts\ContinueGame.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\dmgTextSpawn.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\GameOver.cs" />
     <Compile Include="Assets\Scripts\Bullets.cs" />
     <Compile Include="Assets\Scripts\PotImageUI.cs" />
-    <Compile Include="Assets\Scripts\dmgTextSpawn.cs" />
+    <Compile Include="Assets\Scripts\loadingscreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
