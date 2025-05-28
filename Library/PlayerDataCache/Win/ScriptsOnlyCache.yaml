@@ -20,6 +20,7 @@ ScriptsOnlyBuild:
     - enemyWeapon
     - fireball
     - loadingscreen
+    - newGame
     - projectile
     - weapon
     Unity.2D.Animation.Editor.dll:
@@ -78,21 +79,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1466}
     - Class: 114
-      Script: {instanceID: 1770}
+      Script: {instanceID: 1468}
     - Class: 114
-      Script: {instanceID: 2076}
+      Script: {instanceID: 1644}
     - Class: 114
-      Script: {instanceID: 2434}
+      Script: {instanceID: 1772}
     - Class: 114
-      Script: {instanceID: 2616}
+      Script: {instanceID: 2078}
     - Class: 114
-      Script: {instanceID: 2740}
+      Script: {instanceID: 2436}
     - Class: 114
-      Script: {instanceID: 4150}
+      Script: {instanceID: 2742}
     - Class: 114
-      Script: {instanceID: 4466}
+      Script: {instanceID: 4152}
     - Class: 114
-      Script: {instanceID: 47416}
+      Script: {instanceID: 4470}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -116,15 +117,43 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 20
       Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
     - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1466}
+    - Class: 114
+      Script: {instanceID: 1468}
+    - Class: 114
+      Script: {instanceID: 2436}
+    - Class: 114
+      Script: {instanceID: 2742}
+    - Class: 114
+      Script: {instanceID: 3042}
+    - Class: 114
+      Script: {instanceID: 4326}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -168,59 +197,61 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1530}
     - Class: 114
-      Script: {instanceID: 1650}
+      Script: {instanceID: 1652}
     - Class: 114
-      Script: {instanceID: 1722}
+      Script: {instanceID: 1724}
     - Class: 114
-      Script: {instanceID: 1770}
+      Script: {instanceID: 1772}
     - Class: 114
-      Script: {instanceID: 1814}
+      Script: {instanceID: 1816}
     - Class: 114
-      Script: {instanceID: 1908}
+      Script: {instanceID: 1910}
     - Class: 114
-      Script: {instanceID: 2238}
+      Script: {instanceID: 2240}
     - Class: 114
-      Script: {instanceID: 2434}
+      Script: {instanceID: 2436}
     - Class: 114
-      Script: {instanceID: 2546}
+      Script: {instanceID: 2548}
     - Class: 114
-      Script: {instanceID: 2574}
+      Script: {instanceID: 2576}
     - Class: 114
-      Script: {instanceID: 2720}
+      Script: {instanceID: 2618}
     - Class: 114
-      Script: {instanceID: 2740}
+      Script: {instanceID: 2722}
     - Class: 114
-      Script: {instanceID: 2844}
+      Script: {instanceID: 2742}
     - Class: 114
-      Script: {instanceID: 2924}
+      Script: {instanceID: 2846}
     - Class: 114
-      Script: {instanceID: 2938}
+      Script: {instanceID: 2926}
     - Class: 114
-      Script: {instanceID: 2962}
+      Script: {instanceID: 2940}
     - Class: 114
-      Script: {instanceID: 3040}
+      Script: {instanceID: 2964}
     - Class: 114
-      Script: {instanceID: 3050}
+      Script: {instanceID: 3042}
     - Class: 114
-      Script: {instanceID: 3238}
+      Script: {instanceID: 3052}
     - Class: 114
-      Script: {instanceID: 3470}
+      Script: {instanceID: 3240}
     - Class: 114
-      Script: {instanceID: 3516}
+      Script: {instanceID: 3472}
     - Class: 114
-      Script: {instanceID: 3646}
+      Script: {instanceID: 3518}
     - Class: 114
-      Script: {instanceID: 4012}
+      Script: {instanceID: 3648}
     - Class: 114
-      Script: {instanceID: 4110}
+      Script: {instanceID: 4014}
     - Class: 114
-      Script: {instanceID: 4332}
+      Script: {instanceID: 4112}
     - Class: 114
-      Script: {instanceID: 4462}
+      Script: {instanceID: 4336}
     - Class: 114
-      Script: {instanceID: 4938}
+      Script: {instanceID: 4466}
     - Class: 114
-      Script: {instanceID: 16602}
+      Script: {instanceID: 4942}
+    - Class: 114
+      Script: {instanceID: 16560}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -306,6 +337,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: LayoutElement
+  - hash:
+      serializedVersion: 2
+      Hash: a8aa1bf125b5f6ce383db5bc12ed2534
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: loadingscreen
   - hash:
       serializedVersion: 2
       Hash: c8861516c2c1ef33a013b685bc100ac2
@@ -812,6 +849,12 @@ ScriptsOnlyBuild:
     className: SpriteLibraryAsset
   - hash:
       serializedVersion: 2
+      Hash: 1c6d96382c46b677ba146b8e54bcdfce
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: newGame
+  - hash:
+      serializedVersion: 2
       Hash: 7350f54a079f296cf947e0c60178300a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -888,15 +931,9 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PotImageUI
-  - hash:
-      serializedVersion: 2
-      Hash: 8538f2173c4101279e06e6dda95a96b8
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: loadingscreen
   platform: 5
   scenePathNames:
   - Assets/Scenes/LoadingScreen.unity
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/domin/OneDrive/Desktop/Neuer Ordner/unity/SDC Fighter/SDCFIGHT/obj/SDCFIGHTER.exe
+  playerPath: C:/Users/domin/AppData/LocalLow/SDCFIGHTER.exe

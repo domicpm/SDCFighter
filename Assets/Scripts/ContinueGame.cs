@@ -14,6 +14,7 @@ public class ContinueGame : MonoBehaviour
         myButton.gameObject.SetActive(false);
         myText.gameObject.SetActive(false);
         myButton.onClick.AddListener(OnButtonClick);
+
     }
 
     // Update is called once per frame
@@ -21,6 +22,8 @@ public class ContinueGame : MonoBehaviour
     {
         
     }
+
+
     void OnButtonClick()
     {
         Time.timeScale = 1f;
