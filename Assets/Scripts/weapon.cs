@@ -18,7 +18,7 @@ public class weapon : MonoBehaviour
     {
         if (player.isDead == false)
         {
-            if (Input.GetKey(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKey(KeyCode.JoystickButton7) || Input.GetKey(KeyCode.Mouse0))
             {
                 if (Time.time - lastFireTime >= fireCooldown)
                 {

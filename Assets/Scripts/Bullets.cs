@@ -14,7 +14,7 @@ public class Bullets : MonoBehaviour
     public GameObject b;
     public weapon stab;
     public projectile p;
-    public DamageText dmgtxt;
+    //public DamageText dmgtxt;
     //public UIDamage uidmg;
     //public UIDamage uidmg1;
     private void Start()
@@ -34,7 +34,7 @@ public class Bullets : MonoBehaviour
         }
             
             if(collision.gameObject.CompareTag("Enemy")) {
-            dmgtxt.spawnDmg(damage);
+          //  dmgtxt.spawnDmg(damage);
             Destroy(gameObject);
         }
 
@@ -50,6 +50,7 @@ public class Bullets : MonoBehaviour
     public void shoot()
     {
         var bullet = Instantiate(b, p.transform.position, Quaternion.identity);
+        UpdateDamage();
         Vector3 bulletDir = transform.up;
         bullet.GetComponent<Rigidbody2D>().AddForce(bulletDir * speed, ForceMode2D.Impulse);
         bullet.transform.localScale = originalScale;

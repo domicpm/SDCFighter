@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 mousePos;
     public float angle;
-    public const float maxhp = 500;
+    public const float maxhp = 100;
     public PlayerHealthBar hp;
     public float damageFromEnemy = 5;
     public Text Hp;
