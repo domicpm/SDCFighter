@@ -17,11 +17,11 @@ public class fireball : MonoBehaviour
     private Vector3 originalScale;
     public PlayerMovement p;
     private bool isOriginal = true; // Flag to identify the original prefab
-
+    public Animator animator;
     private void Start()
     {
         originalScale = transform.localScale;
-
+        animator = GetComponent<Animator>();
         // Only the clones should move, not the original prefab
         if (!isOriginal)
         {
@@ -44,21 +44,30 @@ public class fireball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Original prefab spawns new fireballs
-        if (isOriginal)
+        //Debug.Log($"Player isDead: {p.getDead()}");
+
+        if (p.getDead() == false)
         {
-            timer += Time.deltaTime;
-            if (timer >= interval && p != null && !p.getDead())
+            // Original prefab spawns new fireballs
+            if (isOriginal)
             {
-                spawn();
-                timer = 0f;
+                timer += Time.deltaTime;
+                if (timer >= interval && p != null && !p.getDead())
+                {
+                    spawn();
+                    timer = 0f;
+                }
+            }
+            // Clones move in their set direction
+            else if (hasLaunched)
+            {
+                // WICHTIGE ÄNDERUNG: "transform.right" statt "- transform.right"
+                transform.position += transform.right * moveSpeed * Time.deltaTime;
             }
         }
-        // Clones move in their set direction
-        else if (hasLaunched)
+        else
         {
-            // WICHTIGE ÄNDERUNG: "transform.right" statt "- transform.right"
-            transform.position += transform.right * moveSpeed * Time.deltaTime;
+            gameObject.SetActive(false);
         }
     }
 

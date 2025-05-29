@@ -22,9 +22,7 @@ public class GameOver : MonoBehaviour
     {
         if(player.getDead() == true)
         {
-            GameOverTxt.gameObject.SetActive(true);
-            exitGameButton.gameObject.SetActive(true);
-            retryGameButton.gameObject.SetActive(true);
+            StartCoroutine(ShowGameOverUI());
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -33,6 +31,15 @@ public class GameOver : MonoBehaviour
             PauseGame();
         }
     }
+    IEnumerator ShowGameOverUI()
+    {
+        yield return new WaitForSeconds(1.5f); // 1 Sekunde warten
+
+        GameOverTxt.gameObject.SetActive(true);
+        exitGameButton.gameObject.SetActive(true);
+        retryGameButton.gameObject.SetActive(true);
+    }
+
     void PauseGame()
     {
         Time.timeScale = 0f;

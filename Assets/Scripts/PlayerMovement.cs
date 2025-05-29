@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,15 +21,17 @@ public class PlayerMovement : MonoBehaviour
     public bool PlayerGotDamage;
     public PotImageUI potui;
     public Bullets s;
-    private bool isDead = false;
+    public bool isDead = false;
     private bool canDash = true;
     private bool isDashing;
     private float dashingPower = 60f;
     private float dashingTime = 0.1f;
     private float dashingCooldown = 1f;
     public Enemy enemy;
+    public Animator animator; 
     [SerializeField] private TrailRenderer tr;
     public GameObject player;
+    private bool gotHitforAnimation;
     // Start is called before thefirst frame update
     void Start()
     {
@@ -37,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Hp.text = hp.getPlayerHealth().ToString();
         potamount = 3;
-
+        animator = GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
@@ -45,8 +48,9 @@ public class PlayerMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
+
         //controller right stick (aiming)
-       
+
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg - 90f;
@@ -97,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
         if (dashDirectionX != 0)
         {
             rb.velocity = new Vector2(dashDirectionX * dashingPower, rb.velocity.y);
+
         }
         else if (dashDirectionY != 0)
         {
@@ -130,22 +135,25 @@ public class PlayerMovement : MonoBehaviour
             newhp = newhp - damageFromEnemy;
             hp.setPlayerHealth(newhp);
             Hp.text = newhp.ToString();
-            if (newhp <= 0)
+            if (newhp <= 0 && !isDead)
             {
                 isDead = true;
-                destroyObj();
+                animator.SetTrigger("IsDead");
             }
         }
 
         if (collision.gameObject.CompareTag("FireBall"))
-            {            
+            {
+            animator.SetTrigger("GotHit");
             newhp = newhp - damageFromEnemy;
             hp.setPlayerHealth(newhp);
             Hp.text = newhp.ToString();
-            if (newhp <= 0)
+            if (newhp <= 0 && !isDead)
             {
                 isDead = true;
-                destroyObj();
+                animator.SetTrigger("IsDead");
+
+
             }
         }
 
