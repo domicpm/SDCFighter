@@ -59,10 +59,12 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\fireball.cs" />
     <Compile Include="Assets\Scripts\loadingscreen.cs" />
+    <Compile Include="Assets\Scripts\BulletPosition.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\projectile.cs" />
     <Compile Include="Assets\Scripts\AttackBoost.cs" />
     <Compile Include="Assets\Scripts\enemyWeapon.cs" />
+    <Compile Include="Assets\Scripts\RotatePlayerSprite.cs" />
     <Compile Include="Assets\Scripts\weapon.cs" />
     <Compile Include="Assets\Scripts\SingletonCode.cs" />
     <Compile Include="Assets\Scripts\ExitGame.cs" />
@@ -70,8 +72,10 @@
     <Compile Include="Assets\Scripts\AI.cs" />
     <Compile Include="Assets\Scripts\Loot.cs" />
     <Compile Include="Assets\Scripts\PotUI.cs" />
+    <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\RetryGame.cs" />
     <Compile Include="Assets\Scripts\DamageText.cs" />
+    <Compile Include="Assets\Scripts\AttackRangeCircle.cs" />
     <Compile Include="Assets\Scripts\PlayerHealthBar.cs" />
     <Compile Include="Assets\Scripts\UIDamage.cs" />
     <Compile Include="Assets\Scripts\ContinueGame.cs" />
@@ -91,6 +95,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\karsiori\Pixel Art Spruce Tree Pack\Read Me.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />

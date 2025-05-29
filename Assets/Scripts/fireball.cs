@@ -18,6 +18,7 @@ public class fireball : MonoBehaviour
     public PlayerMovement p;
     private bool isOriginal = true; // Flag to identify the original prefab
     public Animator animator;
+    public AttackRangeCircle arc;
     private void Start()
     {
         originalScale = transform.localScale;
@@ -44,8 +45,7 @@ public class fireball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log($"Player isDead: {p.getDead()}");
-
+     
         if (p.getDead() == false)
         {
             // Original prefab spawns new fireballs
@@ -81,7 +81,8 @@ public class fireball : MonoBehaviour
 
     public void spawn()
     {
-        if (p != null && p.getDead() == false && enemy != null)
+        if (p != null && p.getDead() == false && enemy != null && arc.getInRange() == true)
+            
         {
             GameObject newFireball = Instantiate(Prefab, enemy.gameObject.transform.position, Quaternion.identity);
 

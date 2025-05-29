@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -15,10 +16,12 @@ public class Enemy : MonoBehaviour
     public DamageText dt;
     public bool isSpawned = false;
     public dmgTextSpawn spawnposition;
+    public Text hpEnemy;
     private void Start()
     {
         dt.setPosition(spawnposition.gameObject.transform.position);
         healthbar.setMaxHealth(maxhp);
+        hpEnemy.text = maxhp.ToString();
 
     }
     public void destroyObj()
@@ -42,7 +45,7 @@ public class Enemy : MonoBehaviour
         
             maxhp = 1000;
 
-             randomPosition = new Vector3(Random.Range(-9f, 9f), Random.Range(-4f, 4f));
+             randomPosition = new Vector3(Random.Range(-38f, 30f), Random.Range(-10f, 30f));
             Instantiate(gameObject, randomPosition, Quaternion.identity);
         Debug.Log("Damage random:" + randomPosition);
         dt.setPosition(randomPosition);
@@ -54,6 +57,7 @@ public class Enemy : MonoBehaviour
             isHit = true;
             maxhp = maxhp - bullet.getDmg();
             healthbar.setHealth(maxhp);
+            hpEnemy.text = maxhp.ToString();
             if (maxhp <= 0)
             {
                 
