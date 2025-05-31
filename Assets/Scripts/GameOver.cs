@@ -9,7 +9,6 @@ public class GameOver : MonoBehaviour
      public PlayerMovement player;
     public ExitGame exitGameButton;
     public RetryGame retryGameButton;
-    public ContinueGame continueGameButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +23,7 @@ public class GameOver : MonoBehaviour
         {
             StartCoroutine(ShowGameOverUI());
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            continueGameButton.gameObject.SetActive(true);
-            continueGameButton.myText.gameObject.SetActive(true);
-            PauseGame();
-        }
+        
     }
     IEnumerator ShowGameOverUI()
     {
@@ -40,8 +34,5 @@ public class GameOver : MonoBehaviour
         retryGameButton.gameObject.SetActive(true);
     }
 
-    void PauseGame()
-    {
-        Time.timeScale = 0f;
-    }
+   
 }

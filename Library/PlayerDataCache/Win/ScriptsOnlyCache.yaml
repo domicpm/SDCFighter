@@ -6,7 +6,6 @@ ScriptsOnlyBuild:
     - BulletPosition
     - Bullets
     - CameraFollow
-    - ContinueGame
     - DamageText
     - Enemy
     - ExitGame
@@ -14,6 +13,7 @@ ScriptsOnlyBuild:
     - Heal
     - HealthBar
     - Loot
+    - PauseManager
     - PlayerHealthBar
     - PlayerMovement
     - PotImageUI
@@ -93,17 +93,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1470}
     - Class: 114
-      Script: {instanceID: 1646}
+      Script: {instanceID: 1654}
     - Class: 114
-      Script: {instanceID: 1776}
+      Script: {instanceID: 1784}
     - Class: 114
-      Script: {instanceID: 2082}
+      Script: {instanceID: 2090}
     - Class: 114
-      Script: {instanceID: 2442}
+      Script: {instanceID: 2452}
     - Class: 114
-      Script: {instanceID: 4160}
+      Script: {instanceID: 4172}
     - Class: 114
-      Script: {instanceID: 4478}
+      Script: {instanceID: 4490}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -144,11 +144,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1470}
     - Class: 114
-      Script: {instanceID: 2442}
+      Script: {instanceID: 2452}
     - Class: 114
-      Script: {instanceID: 3048}
+      Script: {instanceID: 2592}
     - Class: 114
-      Script: {instanceID: 4334}
+      Script: {instanceID: 2956}
+    - Class: 114
+      Script: {instanceID: 3060}
+    - Class: 114
+      Script: {instanceID: 4346}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -215,67 +219,67 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1472}
     - Class: 114
-      Script: {instanceID: 1532}
-    - Class: 114
-      Script: {instanceID: 1648}
+      Script: {instanceID: 1540}
     - Class: 114
       Script: {instanceID: 1656}
     - Class: 114
-      Script: {instanceID: 1728}
+      Script: {instanceID: 1664}
     - Class: 114
-      Script: {instanceID: 1776}
+      Script: {instanceID: 1736}
     - Class: 114
-      Script: {instanceID: 1820}
+      Script: {instanceID: 1784}
     - Class: 114
-      Script: {instanceID: 1914}
+      Script: {instanceID: 1828}
     - Class: 114
-      Script: {instanceID: 2170}
+      Script: {instanceID: 1922}
     - Class: 114
-      Script: {instanceID: 2246}
+      Script: {instanceID: 2178}
     - Class: 114
-      Script: {instanceID: 2442}
+      Script: {instanceID: 2208}
     - Class: 114
-      Script: {instanceID: 2554}
+      Script: {instanceID: 2256}
     - Class: 114
-      Script: {instanceID: 2582}
+      Script: {instanceID: 2452}
     - Class: 114
-      Script: {instanceID: 2624}
+      Script: {instanceID: 2564}
     - Class: 114
-      Script: {instanceID: 2728}
+      Script: {instanceID: 2592}
     - Class: 114
-      Script: {instanceID: 2850}
+      Script: {instanceID: 2634}
     - Class: 114
-      Script: {instanceID: 2930}
+      Script: {instanceID: 2740}
     - Class: 114
-      Script: {instanceID: 2944}
+      Script: {instanceID: 2862}
     - Class: 114
-      Script: {instanceID: 2966}
+      Script: {instanceID: 2942}
     - Class: 114
-      Script: {instanceID: 2970}
+      Script: {instanceID: 2956}
     - Class: 114
-      Script: {instanceID: 3048}
+      Script: {instanceID: 2978}
     - Class: 114
-      Script: {instanceID: 3058}
+      Script: {instanceID: 2982}
     - Class: 114
-      Script: {instanceID: 3198}
+      Script: {instanceID: 3060}
     - Class: 114
-      Script: {instanceID: 3248}
+      Script: {instanceID: 3070}
     - Class: 114
-      Script: {instanceID: 3480}
+      Script: {instanceID: 3210}
     - Class: 114
-      Script: {instanceID: 3526}
+      Script: {instanceID: 3260}
     - Class: 114
-      Script: {instanceID: 3656}
+      Script: {instanceID: 3538}
     - Class: 114
-      Script: {instanceID: 4022}
+      Script: {instanceID: 3668}
     - Class: 114
-      Script: {instanceID: 4120}
+      Script: {instanceID: 4034}
     - Class: 114
-      Script: {instanceID: 4344}
+      Script: {instanceID: 4132}
     - Class: 114
-      Script: {instanceID: 4474}
+      Script: {instanceID: 4356}
     - Class: 114
-      Script: {instanceID: 4950}
+      Script: {instanceID: 4486}
+    - Class: 114
+      Script: {instanceID: 4964}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -459,6 +463,12 @@ ScriptsOnlyBuild:
     className: CinemachinePixelPerfect
   - hash:
       serializedVersion: 2
+      Hash: 2c10dd5de131fcc2bcbad2a750fe33ee
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PauseManager
+  - hash:
+      serializedVersion: 2
       Hash: c1d728126ff1918728036c59106d32b2
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -529,6 +539,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: 41027a70172359682be52b127dd3f8fe
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: test
   - hash:
       serializedVersion: 2
       Hash: 034726260f2f2cabf39b9cc2edad8c2a
@@ -903,7 +919,7 @@ ScriptsOnlyBuild:
     className: newGame
   - hash:
       serializedVersion: 2
-      Hash: 7350f54a079f296cf947e0c60178300a
+      Hash: 5015d4eb87bf0f9343ee1c0d2e2a1ef5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameOver
@@ -937,6 +953,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ScrollbarEventHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameLogic
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
