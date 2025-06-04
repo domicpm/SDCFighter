@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\projectile.cs" />
     <Compile Include="Assets\Scripts\AttackBoost.cs" />
+    <Compile Include="Assets\Scripts\DebugJoySticks.cs" />
     <Compile Include="Assets\Scripts\enemyWeapon.cs" />
     <Compile Include="Assets\Scripts\RotatePlayerSprite.cs" />
     <Compile Include="Assets\Scripts\PauseManager.cs" />
