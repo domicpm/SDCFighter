@@ -20,6 +20,6 @@ public class RetryGame : MonoBehaviour
     }
     void OnButtonClick()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);      
+        SceneManager.LoadScene("InputDevice");      
     }
 }

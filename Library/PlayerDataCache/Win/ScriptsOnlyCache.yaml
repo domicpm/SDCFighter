@@ -13,6 +13,7 @@ ScriptsOnlyBuild:
     - GameOver
     - Heal
     - HealthBar
+    - InputDevice
     - Loot
     - PauseManager
     - PlayerHealthBar
@@ -48,6 +49,8 @@ ScriptsOnlyBuild:
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshPro
     - TMPro.TextMeshProUGUI
+    Unity.Timeline.Editor.dll:
+    - TimelineProjectSettings
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -68,6 +71,59 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
+    Assets/Scenes/InputDevice.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1466}
+    - Class: 114
+      Script: {instanceID: 1468}
+    - Class: 114
+      Script: {instanceID: 1470}
+    - Class: 114
+      Script: {instanceID: 1776}
+    - Class: 114
+      Script: {instanceID: 2446}
+    - Class: 114
+      Script: {instanceID: 2586}
+    - Class: 114
+      Script: {instanceID: 2628}
+    - Class: 114
+      Script: {instanceID: 2950}
+    - Class: 114
+      Script: {instanceID: 3054}
+    - Class: 114
+      Script: {instanceID: 37338}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
     Assets/Scenes/LoadingScreen.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -892,7 +948,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 97da5668e0db8dd0b3d80eb2e782d6d7
+      Hash: 1a95d969ac2203ead5e8e8e137ee1097
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -946,7 +1002,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: 8eb0b33fc730beaf40ca8a5869285492
+      Hash: 1d64394c690d9e23533b22b7cbaeacac
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Bullets
@@ -1010,9 +1066,16 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PotImageUI
+  - hash:
+      serializedVersion: 2
+      Hash: aa1b413f5b3a22d2ba061d65957ed64f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InputDevice
   platform: 5
   scenePathNames:
   - Assets/Scenes/LoadingScreen.unity
   - Assets/Scenes/MainMenu.unity
+  - Assets/Scenes/InputDevice.unity
   - Assets/Scenes/SampleScene.unity
   playerPath: C:/Users/domin/OneDrive/Desktop/SDCFIGHTER.exe

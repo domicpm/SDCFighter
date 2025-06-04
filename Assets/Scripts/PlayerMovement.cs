@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float angle;
 
     public const float maxhp = 100;
-    public PlayerHealthBar hp;
+    public PlayerHealthBar healthbar;
     public float damageFromEnemy = 5;
     public Text Hp;
     public Heal heal;
@@ -39,9 +39,9 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         newhp = maxhp;
-        hp.setPlayerMaxHealth(maxhp);
+        healthbar.setPlayerMaxHealth(maxhp);
         rb = GetComponent<Rigidbody2D>();
-        Hp.text = hp.getPlayerHealth().ToString();
+        Hp.text = healthbar.getPlayerHealth().ToString();
         potamount = 3;
     }
 
@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
                     //Angle mit Stick - Richtung berechnen
                     angle = Mathf.Atan2(rightStickY, rightStickX) * Mathf.Rad2Deg - 90f;
                 }
-                else if (Input.GetKeyDown(KeyCode.Mouse0)) 
+                else if(InputDevice.mouse == true)
                 {
                     // Sonst Maus verwenden wie bisher
                     mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
                         if (newhp > maxhp) newhp = maxhp;
 
                         potamount--;
-                        hp.setPlayerHealth(newhp);
+                        healthbar.setPlayerHealth(newhp);
                         Hp.text = newhp.ToString();
                     }
                     else
@@ -168,12 +168,14 @@ public class PlayerMovement : MonoBehaviour
         {
             playerSprite.setGotHitAnimation();
             newhp -= damageFromEnemy;
-            hp.setPlayerHealth(newhp);
+            healthbar.setPlayerHealth(newhp);
             Hp.text = newhp.ToString();
 
             if (newhp <= 0 && !isDead)
             {
-                Hp.text = "0";
+                Hp.text = "";
+
+              healthbar.gameObject.SetActive(false);
                 isDead = true;
                 playerSprite.setDeadAnimation();
             }

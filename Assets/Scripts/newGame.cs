@@ -22,7 +22,6 @@ public class newGame : MonoBehaviour
     }
     void OnButtonClick()
     {
-        Debug.Log("Button Clicked!");
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("InputDevice");
     }
 }
