@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private TrailRenderer tr;
     public GameObject player;
     public RotatePlayerSprite playerSprite;
-
+    public BulletPosition bp;
     void Start()
     {
         newhp = maxhp;
@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (!isDead)
             {
+
                 float horizontalInput = Input.GetAxis("Horizontal");
                 float verticalInput = Input.GetAxis("Vertical");
 
@@ -69,9 +70,9 @@ public class PlayerMovement : MonoBehaviour
                 if (rightStickDir.magnitude > 0.1f) // Wenn Stick bewegt wird
                 {
                     //Angle mit Stick - Richtung berechnen
-                      angle = Mathf.Atan2(rightStickY, rightStickX) * Mathf.Rad2Deg - 90f;
+                    angle = Mathf.Atan2(rightStickY, rightStickX) * Mathf.Rad2Deg - 90f;
                 }
-                else
+                else if (Input.GetKeyDown(KeyCode.Mouse0)) 
                 {
                     // Sonst Maus verwenden wie bisher
                     mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -80,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
                 Vector3 movement = transform.position + new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime;
                 transform.position = movement;
+                bp.transform.localRotation = Quaternion.Euler(0, 0, angle);
 
                 // Heiltrank benutzen (Taste H)
                 if (Input.GetKeyDown(KeyCode.H))

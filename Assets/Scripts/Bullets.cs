@@ -14,7 +14,6 @@ public class Bullets : MonoBehaviour
     private Vector3 originalScale;
 
     public GameObject b;
-    public weapon stab;
     public projectile p;
 
     // public DamageText dmgtxt;
@@ -32,8 +31,6 @@ public class Bullets : MonoBehaviour
         if (PauseManager.Instance.IsPaused)
             return;
 
-        stab.transform.localRotation = Quaternion.Euler(0, 0, player.angle);
-        b.transform.localRotation = Quaternion.Euler(0, 0, player.angle);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -67,7 +64,7 @@ public class Bullets : MonoBehaviour
 
         var bullet = Instantiate(b, p.transform.position, Quaternion.identity);
         UpdateDamage();
-        Vector3 bulletDir = transform.up;
+        Vector3 bulletDir = player.bp.transform.up;
         bullet.GetComponent<Rigidbody2D>().AddForce(bulletDir * speed, ForceMode2D.Impulse);
         bullet.transform.localScale = originalScale;
     }
