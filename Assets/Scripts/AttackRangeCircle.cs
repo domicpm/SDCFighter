@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackRangeCircle : MonoBehaviour
 {
-    private bool inRange = false;
+    public bool inRange = false;
     // Start is called before the first frame update
     void Start()
     {

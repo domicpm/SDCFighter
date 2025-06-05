@@ -140,5 +140,5 @@ MonoBehaviour:
   damage: 33
   player: {fileID: 0}
   b: {fileID: 7395927344407474649}
-  stab: {fileID: 0}
   p: {fileID: 0}
+  spell: {fileID: -3826364735981635567, guid: f2933215a308c674fb581975d92014d3, type: 3}

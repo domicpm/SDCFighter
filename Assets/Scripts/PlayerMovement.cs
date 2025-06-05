@@ -30,12 +30,15 @@ public class PlayerMovement : MonoBehaviour
     private float dashingPower = 60f;
     private float dashingTime = 0.1f;
     private float dashingCooldown = 1f;
+    private bool shield;
+    private bool onCooldown = false;
 
     public Enemy enemy;
     [SerializeField] private TrailRenderer tr;
     public GameObject player;
     public RotatePlayerSprite playerSprite;
     public BulletPosition bp;
+    public SpellShield spellshield;
     void Start()
     {
         newhp = maxhp;
@@ -57,8 +60,21 @@ public class PlayerMovement : MonoBehaviour
 
             if (!isDead)
             {
-
-                float horizontalInput = Input.GetAxis("Horizontal");
+                if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    if (onCooldown == false)
+                    {
+                        StartCoroutine(Cooldown());
+                        spellshield.gameObject.SetActive(true);
+                        shield = true;
+                        StartCoroutine(setSpellshieldTimer());
+                    }
+                    else
+                    {
+                        Debug.LogError("COOLDOWN!");
+                    }
+                }
+                    float horizontalInput = Input.GetAxis("Horizontal");
                 float verticalInput = Input.GetAxis("Vertical");
 
                  //Controller rechter Stick auslesen (XY)
@@ -166,18 +182,21 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("FireBall"))
         {
-            playerSprite.setGotHitAnimation();
-            newhp -= damageFromEnemy;
-            healthbar.setPlayerHealth(newhp);
-            Hp.text = newhp.ToString();
-
-            if (newhp <= 0 && !isDead)
+            if (shield == false)
             {
-                Hp.text = "";
+                playerSprite.setGotHitAnimation();
+                newhp -= damageFromEnemy;
+                healthbar.setPlayerHealth(newhp);
+                Hp.text = newhp.ToString();
 
-              healthbar.gameObject.SetActive(false);
-                isDead = true;
-                playerSprite.setDeadAnimation();
+                if (newhp <= 0 && !isDead)
+                {
+                    Hp.text = "";
+
+                    healthbar.gameObject.SetActive(false);
+                    isDead = true;
+                    playerSprite.setDeadAnimation();
+                }
             }
         }
     }
@@ -195,5 +214,17 @@ public class PlayerMovement : MonoBehaviour
     public bool getDead()
     {
         return isDead;
+    }
+    IEnumerator setSpellshieldTimer()
+    {
+        yield return new WaitForSeconds(2f);
+        shield = false;
+        spellshield.gameObject.SetActive(false);
+    }
+    IEnumerator Cooldown()
+    {
+        onCooldown = true;
+        yield return new WaitForSeconds(7f);
+        onCooldown = false;
     }
 }
