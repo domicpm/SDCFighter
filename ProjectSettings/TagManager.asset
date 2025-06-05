@@ -3,26 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Wall
-  - Enemy
-  - Bullet
-  - Loot
-  - Enemy1
-  - FireBall
-  - HealPot
-  - AttackSpeedBuff
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - BulletLayer
+  - 
   - Water
   - UI
-  - Player
-  - Wall
-  - Stab
-  - Damage
   - 
   - 
   - 
@@ -36,6 +24,10 @@ TagManager:
   - 
   - 
   - 
+  - 
+  - Layer 1
+  - Layer 2
+  - Layer 3
   - 
   - 
   - 
@@ -49,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Top
-    uniqueID: 4242684263
+  - name: Layer 1
+    uniqueID: 2425651459
+    locked: 0
+  - name: Layer 2
+    uniqueID: 4250941897
+    locked: 0
+  - name: Layer 3
+    uniqueID: 4189426099
     locked: 0
