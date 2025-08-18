@@ -16,7 +16,6 @@ public class InputDevice : MonoBehaviour
     {
         ButtonController.onClick.AddListener(OnButtonClick); 
         ButtonMouse.onClick.AddListener(OnButtonClick1);
-
     }
 
     // Update is called once per frame
@@ -24,12 +23,16 @@ public class InputDevice : MonoBehaviour
     {
 
     }
+    private void Awake()
+    {
+    }
     void OnButtonClick()
     {
         mouse = false;
         isClicked = true;
         SceneManager.LoadScene("SampleScene");
-        LevelSuccess.waveTime = LevelSuccess.waveTime + Time.time; ;
+        LevelSuccess.waveTime = LevelSuccess.waveTime + Time.time;
+        LevelSuccess.roundStarted = true;
         firstTimeCheckfunc();
     }
     void OnButtonClick1()
@@ -38,6 +41,7 @@ public class InputDevice : MonoBehaviour
         isClicked = true;
         SceneManager.LoadScene("SampleScene");
         LevelSuccess.waveTime = LevelSuccess.waveTime + Time.time;
+        LevelSuccess.roundStarted = true;
         firstTimeCheckfunc();
     }
     void firstTimeCheckfunc()

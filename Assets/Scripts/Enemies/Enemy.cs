@@ -226,6 +226,7 @@ public class Enemy : MonoBehaviour
             {
                 p.experience += 50;
                 bossDead = true;
+                StartCoroutine(Delay());
             }
             else if (!CompareTag("S-Tier-Enemy"))
             {
@@ -244,6 +245,7 @@ public class Enemy : MonoBehaviour
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(2f);
+        LevelSuccess.roundStarted = false;
         LevelSuccess.Instance.setAct();
         //allCleared = true;
     }

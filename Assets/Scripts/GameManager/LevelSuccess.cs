@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class LevelSuccess : MonoBehaviour
 {
     public static LevelSuccess Instance;
-    public int level = 1;
     public Button continueLevelButton;
     public Button continueLevelButtoninRoom;
     public Button teleportButton;
@@ -20,14 +19,20 @@ public class LevelSuccess : MonoBehaviour
     public static bool isInLootRoom = false;
     public static bool levelDoneText = false;
     private bool isTeleported = false;
-    public static float waveTime = 30;
-    public float fixedWaveTime = 30;
+    public static float waveTime = 40;
+    public float fixedWaveTime = 40;
+    public static bool roundStarted = false;
     public npcAzriel azriel;
     public Interact interactRange;
     public AzrielShop shop;
     // Start is called before the first frame update
     void Start()
     {
+        
+            if (roundStarted)
+                setAct();
+        
+
         continueLevelText.gameObject.SetActive(false);
         teleportButton.gameObject.SetActive(false);
         continueLevelButton.gameObject.SetActive(false);
@@ -36,25 +41,31 @@ public class LevelSuccess : MonoBehaviour
         continueLevelButtoninRoom.onClick.AddListener(OnContinueLevelButtoninRoomClicked);
         azriel.gameObject.SetActive(false);
         shopButton.onClick.AddListener(OnShopButtonClicked);
-        setAct();
     }
     private void Awake()
     {
-       Instance = this;
+        Instance = this;
         continueLevelButtoninRoom.gameObject.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
-        if (!PauseManager.Instance.isPaused && InputDevice.isClicked)
+        if (enemyManager.level == 2 || enemyManager.level == 5 || enemyManager.level == 9 || enemyManager.level == 13)
         {
-            if ((waveTime - Time.time) > 0)
+            timeLeftText.text = "";
+        }
+        else
+        {
+            if (!PauseManager.Instance.isPaused && roundStarted)
             {
-                timeLeftText.text = Mathf.RoundToInt(waveTime - Time.time).ToString();
-            }
-            else
-            {
-                timeLeftText.text = "0";
+                if ((waveTime - Time.time) > 0)
+                {
+                    timeLeftText.text = Mathf.RoundToInt(waveTime - Time.time).ToString();
+                }
+                else
+                {
+                    timeLeftText.text = "done";
+                }
             }
         }
         
@@ -63,8 +74,7 @@ public class LevelSuccess : MonoBehaviour
     {
         //healthbar.setPlayerHealth(shop.hpboost + player.newhp);
         //healthbar.setPlayerMaxHealth(shop.hpboost + player.maxhp);
-        level++;
-        enemyManager.InitializeLevel(level, true);
+        enemyManager.InitializeLevel(enemyManager.level, true);
         continueLevelText.gameObject.SetActive(false);
         teleportButton.gameObject.SetActive(false);
         //continueLevelButtoninRoom.gameObject.SetActive(true);
@@ -75,6 +85,7 @@ public class LevelSuccess : MonoBehaviour
         Enemy.killCount = 0;
         enemyManager.level++;
         waveTime = Time.time + fixedWaveTime;
+        roundStarted = true;
         setAct();
     }
     public void OnShopButtonClicked() {
@@ -97,7 +108,8 @@ public class LevelSuccess : MonoBehaviour
         EnemyManager.bossSpawned = false;
         Enemy.killCount = 0;
         enemyManager.level++;
-        waveTime = Time.time + fixedWaveTime;
+        waveTime = Time.time + fixedWaveTime; 
+        roundStarted = true;
         setAct();
     }
 
@@ -110,7 +122,6 @@ public class LevelSuccess : MonoBehaviour
         teleportButton.gameObject.SetActive(false);
         //player.Hp.gameObject.SetActive(false);
         //healthbar.gameObject.SetActive(false);
-        gameObject.SetActive(false);
         teleportButton.gameObject.SetActive(false);
         isInLootRoom = true;
         interactRange.gameObject.SetActive(true);
@@ -121,18 +132,43 @@ public class LevelSuccess : MonoBehaviour
     public void setAct()
     {
         //if ((Enemy.killCount == enemyManager.maxEnemies + 1 && Enemy.bossDead == true) || (Enemy.killCount == enemyManager.maxEnemies && EnemyManager.bossSpawned == false)) 
-        StartCoroutine(WaveTimer());
-            
-        
+        if (enemyManager.level != 2 && enemyManager.level != 5 && enemyManager.level != 9 && enemyManager.level != 13)
+        {
+            StartCoroutine(WaveTimer());
+        }
+    else if(Enemy.bossDead)
+        {
+             levelDoneText = true;
+            continueLevelText.gameObject.SetActive(true);
+            continueLevelButton.gameObject.SetActive(true);
+            teleportButton.gameObject.SetActive(true);
+            continueLevelText.text = "Wave " + (enemyManager.level) + " completed!";
+        }
+                
     }
+    private void OnDisable()
+    {
+        Debug.Log("LevelSuccess wurde deaktiviert!");
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log("LevelSuccess wurde aktiviert!");
+    }
+
     IEnumerator WaveTimer()
     {
+        Debug.Log("Now Started.");
+        Debug.Log("WavetimE:" + fixedWaveTime);
         yield return new WaitForSeconds(fixedWaveTime);
+        Debug.Log("WavetimE:" + fixedWaveTime);
+        roundStarted = false;
         levelDoneText = true;
         continueLevelText.gameObject.SetActive(true);
         continueLevelButton.gameObject.SetActive(true);
         teleportButton.gameObject.SetActive(true);
-        continueLevelText.text = "Wave " + (level) + " completed!";
+        continueLevelText.text = "Wave " + (enemyManager.level) + " completed!";
+        Debug.Log("Now Finished.");
     }
 
 }

@@ -126,12 +126,12 @@ public class PlayerMovement : MonoBehaviour
 
             Vector2 rightStickDir = new Vector2(rightStickX, rightStickY);
 
-            if (rightStickDir.magnitude > 0.1f && InputDevice.mouse == false) // Wenn Stick bewegt wird
+            if (rightStickDir.magnitude > 0.1f ) // Wenn Stick bewegt wird
             {
                 //Angle mit Stick - Richtung berechnen
                 angle = Mathf.Atan2(rightStickY, rightStickX) * Mathf.Rad2Deg - 90f;
             }
-            else if (InputDevice.mouse == true)
+            else 
             {
                 // Sonst Maus verwenden wie bisher
                 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

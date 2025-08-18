@@ -22,19 +22,20 @@ public class EnemyManager : MonoBehaviour
     public EnemyTier et;
 
     public Rarity rarity;
-    public float baseHP = 1500;
+    public float baseHP = 500;
     public static bool bossSpawned = false;
     private float baseSpeed = 7f;
     private int damageBoost = 1;
     private int spawnAfterKill = 2;
     public static int fireMultiplier = 1;
-    private float spawnInterval = 0.9f; // alle 2 Sekunden
+    private float spawnInterval = 1.5f; // abstand zwischen spawns  
     private float spawnTimer = 0f;
-    public int maxEnemies = 5;
+    public int maxEnemies = 1;
     private int enemyCount = 0;
     public int counter = 0;
     private int enemiesInScene = 3;
-    public int level = 0;
+    public int level = 1;
+    public static bool isBossRound;
     private void Awake()
     {
         if (Instance == null)
@@ -46,7 +47,6 @@ public class EnemyManager : MonoBehaviour
             Destroy(gameObject); // Singleton
         }
     }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.B))
@@ -56,16 +56,17 @@ public class EnemyManager : MonoBehaviour
         spawnTimer += Time.deltaTime;
 
         //if (spawnTimer >= spawnInterval && enemyCount < maxEnemies)
-           if (spawnTimer >= spawnInterval)
-            {
+           if (spawnTimer >= spawnInterval && (level != 2 && level != 5 && level != 9 && level != 13))
+           {
                 InitializeLevel(1); //spawnt Gegner
             enemyCount++;
             spawnTimer = 0f;
-        }
-
-        else if (bossSpawned == false && Enemy.killCount == maxEnemies && level % 2 == 0)
+            isBossRound = false;
+           }
+        else if ((level == 2 || level == 5 || level == 9 || level == 13) && !bossSpawned)
         {
             SpawnBoss(level);
+            isBossRound = true;
         }
         if (Enemy.killCount > maxEnemies && enemyCount >= maxEnemies)
         {
@@ -80,27 +81,22 @@ public class EnemyManager : MonoBehaviour
             Vector3 spawnPos = new Vector3(Random.Range(-100f, -36f), Random.Range(-5f, 30f));
             int spawnType = Random.Range(1, 101);
             GameObject enemyGO;
-
-
             switch (enemyType)
             {
                 case 1:
                     enemyGO = Instantiate(deathEyePrefab, spawnPos, Quaternion.identity);
                     enemyType = 1;
                     break;
-
                 case 2:
                     enemyGO = Instantiate(wraithPrefab, spawnPos, Quaternion.identity);
                     enemyType = 2;
                     break;
-
                 case 3:
                     enemyGO = Instantiate(golemPrefab, spawnPos, Quaternion.identity);
                     enemyType = 2;
                     break;
                 default:
                     enemyGO = null;
-
                     enemyType = 0;
                     break;
             }
@@ -138,8 +134,6 @@ public class EnemyManager : MonoBehaviour
             }
         }
     }
-
-
     public void InitializeLevel(int level, bool a)
     {
         enemyCount = 0;
@@ -154,13 +148,11 @@ public class EnemyManager : MonoBehaviour
         maxEnemies += 4;
         if (player.godmode == false)
         {
-            player.damageFromEnemy += 6;
+            player.damageFromEnemy += 5;
         }
-        bossSpawned = false;
         Enemy.allCleared = false;
         //Enemy.isBoss = false;
     }
-
     public Fireball setEnemyBullet(int enemyType)
     {
         if (enemyType == 1)
@@ -180,7 +172,6 @@ public class EnemyManager : MonoBehaviour
         Vector3 spawnPos = new Vector3(Random.Range(-75f, -50f), Random.Range(3f, 22f));
         GameObject bossGO = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
         Enemy boss = bossGO.GetComponent<Enemy>();
-
         //boss.maxhp = (baseHP + level * 1500) * 4f;
         boss.hp = boss.maxhp;
         boss.p = player;
@@ -197,5 +188,10 @@ public class EnemyManager : MonoBehaviour
         boss.fireballSpeed = 40f;
         //Enemy.isBoss = true; 
         bossSpawned = true;
+    }
+    IEnumerator SpawnBossDelayed()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SpawnBoss(level);
     }
 }

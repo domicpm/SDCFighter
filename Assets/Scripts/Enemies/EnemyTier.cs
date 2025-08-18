@@ -70,11 +70,11 @@ public class EnemyTier : MonoBehaviour
                 isShiny = true;
                 return new EnemyTierStats(Random.Range(13, 15), 3f, 4000f, 4);
             case 'A':
-                return new EnemyTierStats(Random.Range(10, 13), 1.5f, 800, 2);
+                return new EnemyTierStats(Random.Range(10, 13), 1.5f, 700, 2);
             case 'B':
-                return new EnemyTierStats(Random.Range(10, 12), 1.2f, 700f, 2);
+                return new EnemyTierStats(Random.Range(10, 12), 1.2f, 600, 2);
             case 'C':
-                return new EnemyTierStats(Random.Range(9, 11), 1.2f, 300f, 2);
+                return new EnemyTierStats(Random.Range(9, 11), 1.2f, 200, 2);
             case 'D':
                 return new EnemyTierStats(Random.Range(8, 10), 1f, 0f, 2);
             default:
