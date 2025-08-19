@@ -15,9 +15,11 @@ public class EnemyManager : MonoBehaviour
     public GameObject deathEyePrefab;
     public GameObject wraithPrefab;
     public GameObject golemPrefab;
+    public GameObject archerPrefab;
 
     public Fireball deathEyeBulletPrefab;
     public Fireball wraithBulletPrefab;
+    public Fireball archerArrowPrefab;
 
     public EnemyTier et;
 
@@ -77,23 +79,28 @@ public class EnemyManager : MonoBehaviour
     {
         if (!LevelSuccess.levelDoneText)
         {
-            int enemyType = Random.Range(1, 4);
+            int enemyType = Random.Range(1, 6);
             Vector3 spawnPos = new Vector3(Random.Range(-100f, -36f), Random.Range(-5f, 30f));
             int spawnType = Random.Range(1, 101);
             GameObject enemyGO;
             switch (enemyType)
             {
                 case 1:
-                    enemyGO = Instantiate(deathEyePrefab, spawnPos, Quaternion.identity);
+                case 2:
+                    enemyGO = Instantiate(golemPrefab, spawnPos, Quaternion.identity);
                     enemyType = 1;
                     break;
-                case 2:
+                case 3:                   
                     enemyGO = Instantiate(wraithPrefab, spawnPos, Quaternion.identity);
                     enemyType = 2;
                     break;
-                case 3:
-                    enemyGO = Instantiate(golemPrefab, spawnPos, Quaternion.identity);
+                case 4:
+                    enemyGO = Instantiate(deathEyePrefab, spawnPos, Quaternion.identity);
                     enemyType = 2;
+                    break;
+                case 5:
+                    enemyGO = Instantiate(archerPrefab, spawnPos, Quaternion.identity);
+                    enemyType = 3;
                     break;
                 default:
                     enemyGO = null;
@@ -163,6 +170,10 @@ public class EnemyManager : MonoBehaviour
         {
             return wraithBulletPrefab;
         }
+        else if (enemyType == 3)
+        {
+            return archerArrowPrefab;
+        }
         return null;
     }
     public void SpawnBoss(int level)
@@ -185,7 +196,7 @@ public class EnemyManager : MonoBehaviour
         // BOSS SETUP
         boss.fireballSizeMultiplier = 2;
         boss.fireballInterval = 0.07f;
-        boss.fireballSpeed = 40f;
+        boss.fireballSpeed = 15f;
         //Enemy.isBoss = true; 
         bossSpawned = true;
     }

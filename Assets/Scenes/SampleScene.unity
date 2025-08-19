@@ -17832,6 +17832,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 40878531078091013, guid: ca2867a925441904d80484956e5dc4ce,
         type: 3}
+      propertyPath: healamount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 40878531078091013, guid: ca2867a925441904d80484956e5dc4ce,
+        type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1250401415}
@@ -19358,6 +19363,12 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 4904633909713121429, guid: ecc99d081db25544387804c76e0bf756,
         type: 3}
+      propertyPath: archerPrefab
+      value: 
+      objectReference: {fileID: 7372187077344510902, guid: bd801384bd6087648bd63bee26f31933,
+        type: 3}
+    - target: {fileID: 4904633909713121429, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 715943271}
@@ -19378,6 +19389,12 @@ PrefabInstance:
       propertyPath: nocturnePrefab
       value: 
       objectReference: {fileID: 2905627799309337791, guid: 5a35e5d864b3b964586ef6c3d38ada85,
+        type: 3}
+    - target: {fileID: 4904633909713121429, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: archerArrowPrefab
+      value: 
+      objectReference: {fileID: 3523539476511604924, guid: 63459ebc74ce96a4babd78025b605034,
         type: 3}
     - target: {fileID: 4904633909713121429, guid: ecc99d081db25544387804c76e0bf756,
         type: 3}

@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     public EnemyTier et;
     [HideInInspector] public int fireballSizeMultiplier = 1;
     [HideInInspector]public float fireballInterval = 0.7f;
-    [HideInInspector] public float fireballSpeed = 8f;
+    public float fireballSpeed = 8f;
     public static bool allCleared = false;
     public static bool isDummy = false;
     private Vector3 baseScale;
@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
     public static int killCount = 0;
     private Vector3 personalOffset;
     public bool isGolem = false;
+    public bool isArcher = false;
     private bool isDone = false;
     private Color originalColor;
     private void Start()

@@ -328,7 +328,7 @@ MonoBehaviour:
   itemType: {fileID: -3837769607044853715, guid: 622e40a2e7246b24595b9e6d926bf58a,
     type: 3}
   item: {fileID: 0}
-  p: {fileID: 2574348228412017867, guid: 4d481690a415c4c47b771ded3d0041b3, type: 3}
+  p: {fileID: 0}
   randomPosition: {x: 0, y: 0, z: 0}
   isSpawned: 0
   hpEnemy: {fileID: 2715785419702085007}
@@ -348,6 +348,7 @@ MonoBehaviour:
   fireballInterval: 0.7
   fireballSpeed: 8
   isGolem: 0
+  isArcher: 0
 --- !u!61 &2715785419217849712
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1177,6 +1178,11 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
+        type: 3}
+      propertyPath: enemySpawn
+      value: 
+      objectReference: {fileID: 2715785419620837974}
     - target: {fileID: 6153538198351265919, guid: 847e58598afba1e438137f3359c12811,
         type: 3}
       propertyPath: m_Sprite

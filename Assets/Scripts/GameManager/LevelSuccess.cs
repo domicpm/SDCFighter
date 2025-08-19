@@ -131,6 +131,7 @@ public class LevelSuccess : MonoBehaviour
 
     public void setAct()
     {
+        if (player.getDead()) return;
         //if ((Enemy.killCount == enemyManager.maxEnemies + 1 && Enemy.bossDead == true) || (Enemy.killCount == enemyManager.maxEnemies && EnemyManager.bossSpawned == false)) 
         if (enemyManager.level != 2 && enemyManager.level != 5 && enemyManager.level != 9 && enemyManager.level != 13)
         {

@@ -136,11 +136,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7098630828924542668, guid: b0963465493e43247b8616911bffb635, type: 3}
   ppos: 175
-  moveSpeed: 8
+  moveSpeed: 5
   Prefab: {fileID: 8202535746269988529, guid: f7ecd6d523517f74b899e5551d7a9f91, type: 3}
   interval: 0.25
-  enemy: {fileID: 0}
+  intervalMelee: 0.2
+  enemySpawn: {fileID: 0}
+  enemySpawn2: {fileID: 0}
+  enemySpawn3: {fileID: 0}
   p: {fileID: 7098630828924542664, guid: b0963465493e43247b8616911bffb635, type: 3}
   animator: {fileID: 0}
   arc: {fileID: 0}
   boss: {fileID: 0}
+  res: {fileID: 0}
+  isGolem: 0
+  isAttacking: 0

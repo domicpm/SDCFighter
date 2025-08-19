@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashingPower = 50f;
     private float dashingTime = 0.1f;
     private bool dashOnCooldown = false;
-    public static float dashCooldown = 5f;
+    public static float dashCooldown = 3f;
  
     public float newhp;
     public bool PlayerGotDamage;

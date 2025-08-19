@@ -489,7 +489,7 @@ GameObject:
   - component: {fileID: 363474655047845331}
   m_Layer: 6
   m_Name: AttackRangeCircle
-  m_TagString: Untagged
+  m_TagString: arc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -502,8 +502,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363474655047845327}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.001, y: 0.101, z: 0}
-  m_LocalScale: {x: 0.37652504, y: 0.3227261, z: 1}
+  m_LocalPosition: {x: 0.00366, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.46151686, y: 0.40768054, z: 1}
   m_Children: []
   m_Father: {fileID: 363474655076200618}
   m_RootOrder: 4
@@ -748,6 +748,7 @@ MonoBehaviour:
   fireballInterval: 0.7
   fireballSpeed: 8
   isGolem: 1
+  isArcher: 0
 --- !u!61 &363474655076200615
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1150,7 +1151,7 @@ PrefabInstance:
     - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
         type: 3}
       propertyPath: isGolem
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
         type: 3}
@@ -1160,17 +1161,27 @@ PrefabInstance:
     - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
         type: 3}
       propertyPath: interval
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
         type: 3}
+      propertyPath: enemySpawn
+      value: 
+      objectReference: {fileID: 363474653599602561}
+    - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
+        type: 3}
       propertyPath: intervalMelee
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6153538198351265919, guid: 847e58598afba1e438137f3359c12811,
         type: 3}
       propertyPath: m_Sprite
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153538198351265919, guid: 847e58598afba1e438137f3359c12811,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6153538198351265919, guid: 847e58598afba1e438137f3359c12811,
         type: 3}

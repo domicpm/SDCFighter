@@ -187,7 +187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2574348228399634307
 RectTransform:
   m_ObjectHideFlags: 0
@@ -917,6 +917,7 @@ MonoBehaviour:
   bullet: {fileID: 0}
   fireCooldown: 0.5
   player: {fileID: 2574348228412017867}
+  rt: {fileID: 0}
 --- !u!1 &2574348229786252921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,6 +1256,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealthBarPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215550977646827437, guid: 76252a1e21b05254d9a53cad1a65dd84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9215550977646827438, guid: 76252a1e21b05254d9a53cad1a65dd84,
         type: 3}

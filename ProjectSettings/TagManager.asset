@@ -19,6 +19,7 @@ TagManager:
   - S-Tier-Enemy
   - Chest
   - ItemWithEffect
+  - arc
   layers:
   - Default
   - TransparentFX
