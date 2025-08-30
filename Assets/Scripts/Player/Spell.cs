@@ -29,10 +29,12 @@ public class Spell : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().angularVelocity = 0f;
 
-            StartCoroutine(MySequence());
+            //StartCoroutine(MySequence()); // wird aktuell nicht gebraucht, da Logik in ObjectPooling implementiert wird
+            objectPooling.StartCoroutine(objectPooling.ReturnToPoolDelayed(gameObject, 0.05f, originalScale));
         }
     }
 
+    // wird aktuell nicht gebraucht, da Logik in ObjectPooling implementiert wird
     IEnumerator MySequence()
     {
         transform.localScale = originalScale * 5.5f;

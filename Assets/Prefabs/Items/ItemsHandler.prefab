@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067973567964476036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -67.60103, y: 16.153904, z: 0}
+  m_LocalPosition: {x: -75.86348, y: 15.450564, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,6 +62,8 @@ MonoBehaviour:
   attackBoost: {fileID: 3550497888350434903, guid: ade59a37a01dc524ba68aefbb7089fc8,
     type: 3}
   chest: {fileID: 339614194173346072, guid: 5cbdb0daf051740419165513d67d6f7b, type: 3}
+  spellBook: {fileID: 9015352305098567093, guid: 8cb6f316d38183b46b1037fbe95853a7,
+    type: 3}
   player: {fileID: 40878531078091013, guid: ca2867a925441904d80484956e5dc4ce, type: 3}
   prefabGreen: {fileID: 9125011487636493101, guid: 248414fd385043e408f459091f799bae,
     type: 3}

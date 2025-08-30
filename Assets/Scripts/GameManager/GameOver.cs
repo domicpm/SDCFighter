@@ -28,7 +28,6 @@ public class GameOver : MonoBehaviour
     IEnumerator ShowGameOverUI()
     {
         yield return new WaitForSeconds(1.5f); 
-
         GameOverTxt.gameObject.SetActive(true);
         exitGameButton.gameObject.SetActive(true);
         retryGameButton.gameObject.SetActive(true);

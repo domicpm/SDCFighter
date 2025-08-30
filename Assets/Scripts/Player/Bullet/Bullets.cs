@@ -35,12 +35,6 @@ public class Bullets : MonoBehaviour
         UpdateDamage();
         originalScale = transform.localScale;
     }
-
-    private void Update()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
@@ -54,11 +48,9 @@ public class Bullets : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Boss") || collision.gameObject.CompareTag("S-Tier-Enemy"))
         {
-            // dmgtxt.spawnDmg(damage);
             objectPooling.RemoveObject(gameObject);
         }
     }
-
     public float getDmg()
     {
         return damage;
@@ -85,7 +77,7 @@ public class Bullets : MonoBehaviour
         if (PauseManager.Instance.gameFreezed || LevelSuccess.isInLootRoom || LevelSuccess.levelDoneText)
             return;
 
-        GameObject bullet = objectPooling.ActivateObject(objectPooling.leftClick, player.bp.transform.position, Quaternion.identity);
+        GameObject bullet = objectPooling.ActivateObject(objectPooling.resourceTypeA, player.bp.transform.position, Quaternion.identity);
         if (bullet == null) return;
 
         var bulletScript = bullet.GetComponent<Bullets>();
@@ -125,7 +117,7 @@ public class Bullets : MonoBehaviour
         cdUI.spellCooldownImage.gameObject.SetActive(true);
         cdUI.ResetCooldown("spell");
         //var bullet = Instantiate(spell, player.bp.transform.position, Quaternion.identity);
-        GameObject spell = objectPooling.ActivateObject(objectPooling.rightClick, player.bp.transform.position, Quaternion.identity);
+        GameObject spell = objectPooling.ActivateObject(objectPooling.resourceTypeB, player.bp.transform.position, Quaternion.identity);
         Transform thunder = spell.transform.Find("Thunder");
 
         if (PlayerMovement.isCombo)

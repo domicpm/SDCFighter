@@ -16,43 +16,6 @@ public class EnemyTier : MonoBehaviour
     public float tierHpBonus = 0;
     public float tierScaleBonus = 1f;
     bool isScaled = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
- 
-    public void golemType(int type)
-    {
-        switch (type)
-        {
-            case 1:
-
-                break;
-            case 2:
-
-                break;
-            case 3:
-
-                break;
-            case 4:
-
-                break;
-            case 5:
-
-                break;
-            default:
-                break;
-        }
-
-    }
     public char tierDecider()
     {
         int randomTier = Random.Range(1, 101);

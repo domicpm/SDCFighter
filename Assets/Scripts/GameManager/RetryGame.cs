@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class RetryGame : MonoBehaviour
 {
     public Button myButton;
+    public static float levelStartTime;
+    public static bool gameRestart = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,7 @@ public class RetryGame : MonoBehaviour
     }
     void OnButtonClick()
     {
+        gameRestart = true;
         SceneManager.LoadScene("InputDevice");      
     }
 }

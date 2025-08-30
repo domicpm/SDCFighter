@@ -51,6 +51,7 @@ public class EnemyManager : MonoBehaviour
     }
     private void Update()
     {
+        if (!LevelSuccess.roundStarted) return;
         if (Input.GetKeyDown(KeyCode.B))
         {
             SpawnBoss(level);
@@ -196,7 +197,7 @@ public class EnemyManager : MonoBehaviour
         // BOSS SETUP
         boss.fireballSizeMultiplier = 2;
         boss.fireballInterval = 0.07f;
-        boss.fireballSpeed = 15f;
+        boss.fireballSpeed = 10f;
         //Enemy.isBoss = true; 
         bossSpawned = true;
     }

@@ -2,41 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Hinweis: Dieses Snippet stammt ursprünglich aus meinem Unity-Projekt,
+/// wurde aber neutralisiert, um unabhängig von Game-Entwicklung verständlich zu sein.
+/// </summary>
 public class ObjectPooling : MonoBehaviour
 {
     private Dictionary<GameObject, Queue<GameObject>> pool = new Dictionary<GameObject, Queue<GameObject>>();
-    public GameObject leftClick; //Auto Attack
-    public GameObject rightClick; //Spell
-    // Start is called before the first frame update
+
+    public GameObject resourceTypeA; // Auto Attack
+    public GameObject resourceTypeB; // Spell 1   
     void Start()
     {
-        CreatePool(leftClick, 30);
-        CreatePool(rightClick, 20);
-
+        // Erstelle Pools für verschiedene Objekttypen
+        CreatePool(resourceTypeA, 30);
+        CreatePool(resourceTypeB, 20);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    //Pooling:
+    // Erstellt einen Pool wiederverwendbarer Objekte
     private void CreatePool(GameObject prefab, int sizeOfPool)
     {
-        Queue<GameObject> newPool = new Queue<GameObject>();
+        Queue<GameObject> objectQueue = new Queue<GameObject>();
         for (int i = 0; i < sizeOfPool; i++)
         {
             GameObject obj = Instantiate(prefab, transform);
             obj.GetComponent<PrefabPooling>().SetPrefab(prefab);
             obj.SetActive(false);
-            newPool.Enqueue(obj);
+            objectQueue.Enqueue(obj);
         }
-        pool[prefab] = newPool;
+        pool[prefab] = objectQueue;
     }
+    // Aktiviert ein Objekt aus dem Pool an einer bestimmten Position und Rotation
     public GameObject ActivateObject(GameObject prefab, Vector3 position, Quaternion rotation)
     {
         Queue<GameObject> newPool = pool[prefab];
-        if (pool.Count > 0)
+        if (newPool.Count > 0)
         {
             GameObject obj = newPool.Dequeue();
             var bullet = obj.GetComponent<Bullets>();
@@ -45,35 +44,26 @@ public class ObjectPooling : MonoBehaviour
             obj.transform.rotation = rotation;
             if (bullet != null)
             {
-                bullet.dmgApplied = false; // sorgt dafür, dass dmg applied bei jedem bullet im pool false ist, und somit wieder neu schaden machen kann
+                bullet.dmgApplied = false; // Schaden Reset für Bullet-Logik
             }
             return obj;
         }
-        else
-        {
-            //GameObject newObj = Instantiate(prefab, transform);
-            //newObj.GetComponent<PrefabPooling>().SetPrefab(prefab);
-            //newObj.SetActive(true);
-            //newObj.transform.position = position;
-            //newObj.transform.rotation = rotation;
-            //return newObj;
-        }
         return null;
     }
+    // Deaktiviert ein Objekt und legt es zurück in den Pool
     public void RemoveObject(GameObject obj)
     {
         obj.SetActive(false);
         pool[obj.GetComponent<PrefabPooling>().prefab].Enqueue(obj);
     }
-    public IEnumerator ReturnToPoolDelayed(GameObject go, float delay, Vector3 resetScale)
+    // Objekt wird nach einer kurzen Aktion (Explosionseffekt) wieder in den Pool zurückgelegt (Coroutines sind Unity-spezifisch, ähnlich zu async/await)
+    public IEnumerator ReturnToPoolDelayed(GameObject obj, float delay, Vector3 resetScale)
     {
-        if (go == null) yield break;
+        if (obj == null) yield break;
 
-        go.transform.localScale = resetScale * 5.5f;
+        obj.transform.localScale = resetScale * 5.5f; 
         yield return new WaitForSeconds(delay);
-
-        go.transform.localScale = resetScale;
-        RemoveObject(go); // Entfernt oder deaktiviert das Objekt
+        obj.transform.localScale = resetScale;
+        RemoveObject(obj); 
     }
-
 }

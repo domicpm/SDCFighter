@@ -194,6 +194,10 @@ public class Enemy : MonoBehaviour
             {
                 item.spawnItemsWithEffects(enemydeathpos);
             }
+            else if (isBoss)
+            {
+                itemType.spawnItems(enemydeathpos, 4);
+            }
             if (dropChance <= 5 && !CompareTag("S-Tier-Enemy"))
             {
                 itemType.spawnItems(enemydeathpos, 1);
@@ -202,9 +206,10 @@ public class Enemy : MonoBehaviour
             {
                 itemType.spawnItems(enemydeathpos, 2);
             }
-            else if (!CompareTag("S-Tier-Enemy") && dropChance <= 1)
+            else if (!CompareTag("S-Tier-Enemy") && dropChance <= 2)
             {
                 itemType.spawnItems(enemydeathpos, 3);
+                itemType.spawnItems(enemydeathpos, 4);
             }
             if (CompareTag("S-Tier-Enemy") && dropChance >= 50)
             {

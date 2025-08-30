@@ -7,6 +7,7 @@ public class ItemDrops : MonoBehaviour
     public GameObject heal;
     public GameObject attackBoost;
     public GameObject chest;
+    public GameObject spellBook;
     public PlayerMovement player;
     public GameObject prefabGreen;
     public GameObject prefabBlue;
@@ -46,6 +47,10 @@ public class ItemDrops : MonoBehaviour
                 newHeal = Instantiate(chest, enemypos, Quaternion.identity);
                 gameObject.transform.position = enemypos;
                 break;
+            case 4:
+                newHeal = Instantiate(spellBook, enemypos, Quaternion.identity);
+                gameObject.transform.position = enemypos;
+                break;
         }
     }
     public void applyItemWithEffects()
@@ -71,6 +76,7 @@ public class ItemDrops : MonoBehaviour
             Bullets.maxdamageSpell += 220;
             PlayerAttackSpawn.fireCooldownSpell *= spellCooldown;
         }
+      
     }
     public void spawnItemsWithEffects(Vector3 enemypos)
     {

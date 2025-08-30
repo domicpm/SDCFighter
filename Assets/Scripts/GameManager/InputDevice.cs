@@ -14,7 +14,7 @@ public class InputDevice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ButtonController.onClick.AddListener(OnButtonClick); 
+        ButtonController.onClick.AddListener(OnButtonClick);
         ButtonMouse.onClick.AddListener(OnButtonClick1);
     }
 

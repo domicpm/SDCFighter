@@ -24,23 +24,17 @@ public class PlayerAttackSpawn : MonoBehaviour
             return;
         if (player.isDead == false)
         {
-            if (Time.time - lastFireTime >= fireCooldown)
-            {
-                bullet.shoot();
-                lastFireTime = Time.time; // Setze die Zeit des letzten Schusses auf die aktuelle Zeit
-                //rt.setAttackAnimation(true);
-            }
+
             if (Input.GetKey(KeyCode.JoystickButton7) || Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.J))
             {
-                
+                if (Time.time - lastFireTime >= fireCooldown)
+                {
+                    bullet.shoot();
+                    lastFireTime = Time.time; // Setze die Zeit des letzten Schusses auf die aktuelle Zeit
+                }
             }
             if (Input.GetKey(KeyCode.JoystickButton7) || Input.GetKey(KeyCode.Mouse1))
             {
-                //if(cooldown == false)
-                //{
-                //    bullet.shootLeft();
-                //    cooldown = true;
-                //}
                 if (Time.time - lastFireTimeSpell >= fireCooldownSpell)
                 {
                     bullet.shootLeft();
